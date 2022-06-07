@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lovecalculator.css">
+    <title>Love Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculate Your Love Percentage</h2>
+        <form onsubmit="return false">
+            <div class="inputHere">
+            <input type="text" name="yourName" id="yourName" placeholder="Enter Your Name">
+            <span>&hearts;</span>
+            <input type="text" name="yourLoveName" id="yourLoveName" placeholder="Enter Your Love Name">
+            </div>
+            <div class="btn">
+            <button onclick="myFunction()">Submit</button>
+            </div>
+            <div class="valueHere">
+            <input type="text" name="Love Percentage" id="valueHere" placeholder="Love Percentage">
+            </div>
+            <div>
+                <h3 id="alertHere"></h3>
+            </div>
+        </form>
+
+
+    </div>
+
+    <script>
+        function myFunction() {
+            var yourName = document.getElementById("yourName").value
+            var yourLoveName = document.getElementById("yourLoveName").value
+
+            if(yourName ==""){
+                document.getElementById('alertHere').innerHTML = "Please Enter Your Name"
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;');
+                document.getElementById("valueHere").value = ""; 
+            }else if (!isNaN(yourName)) {
+                document.getElementById('alertHere').innerHTML = "Name Contain Number"
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;');
+                document.getElementById("valueHere").value = ""; 
+            }else if(yourName.length<=2){
+                document.getElementById('alertHere').innerHTML = "Minimum Length Should be 3"
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;');
+                document.getElementById("valueHere").value = "";                 
+            }
+            else if(yourLoveName ==""){
+                document.getElementById('alertHere').innerHTML = "Please Enter Your Love Name"
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;');
+                document.getElementById("valueHere").value = ""; 
+            }else if (!isNaN(yourLoveName)) {
+                document.getElementById('alertHere').innerHTML = "Name Contain Number"
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;');
+                document.getElementById("valueHere").value = ""; 
+            }else if(yourLoveName.length<=2){
+                document.getElementById('alertHere').innerHTML = "Minimum Length Should be 3"
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;');
+                document.getElementById("valueHere").value = "";                
+            }else {
+                var percentage = (Math.random()*100) + 1
+                percentage = Math.round(percentage)
+            
+                document.getElementById("valueHere").value = percentage + "%";
+                document.getElementById('alertHere').innerHTML = "Love Percentage is "+ " " + percentage;
+                document.getElementById('alertHere').setAttribute('style',
+                'display: block; transition: ease-in;'); 
+            }
+
+        }
+
+    </script>
+</body>
+</html>
